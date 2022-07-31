@@ -7,9 +7,9 @@ import {
   AiOutlineTwitter,
   AiFillInstagram,
 } from "react-icons/ai";
-import { FaLinkedinIn } from "react-icons/fa";
+import { FaLinkedinIn,FaFacebook } from "react-icons/fa";
 
-function Home2() {
+function HomeAbout() {
   return (
     <Container fluid className="home-about-section" id="about">
       <Container>
@@ -67,7 +67,7 @@ function Home2() {
             <ul className="home-about-social-links">
               <li className="social-icons">
                 <a
-                  href="https://github.com/soumyajit4419"
+                  href="https://github.com/jp-vasoya-02/"
                   target="_blank"
                   rel="noreferrer"
                   className="icon-colour  home-social-icons"
@@ -76,18 +76,18 @@ function Home2() {
                 </a>
               </li>
               <li className="social-icons">
-                <a
-                  href="https://twitter.com/Soumyajit4419"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="icon-colour  home-social-icons"
-                >
-                  <AiOutlineTwitter />
-                </a>
-              </li>
+              <a
+                href="https://www.facebook.com/jpvasoya222"
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="icon-colour  home-social-icons"
+              >
+                <FaFacebook />
+              </a>
+            </li>
               <li className="social-icons">
                 <a
-                  href="https://www.linkedin.com/in/soumyajit4419/"
+                  href="https://in.linkedin.com/in/jaydip-vasoya-149974199"
                   target="_blank"
                   rel="noreferrer"
                   className="icon-colour  home-social-icons"
@@ -97,7 +97,7 @@ function Home2() {
               </li>
               <li className="social-icons">
                 <a
-                  href="https://www.instagram.com/s.o.u.m.y.a_j.i.t/"
+                  href="https://www.instagram.com/jp.vasoya.02/"
                   target="_blank"
                   rel="noreferrer"
                   className="icon-colour home-social-icons"
@@ -112,4 +112,4 @@ function Home2() {
     </Container>
   );
 }
-export default Home2;
+export default HomeAbout;
