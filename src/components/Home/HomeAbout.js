@@ -4,7 +4,6 @@ import myImg from "../../Assets/avatar.svg";
 import Tilt from "react-parallax-tilt";
 import {
   AiFillGithub,
-  AiOutlineTwitter,
   AiFillInstagram,
 } from "react-icons/ai";
 import { FaLinkedinIn,FaFacebook } from "react-icons/fa";
@@ -24,21 +23,21 @@ function HomeAbout() {
               <br />
               <br />I am fluent in classics like
               <i>
-                <b className="purple"> C++, Javascript and Python. </b>
+                <b className="purple"> Javascript, Python and C language. </b>
               </i>
               <br />
               <br />
               My field of Interest's are building new &nbsp;
               <i>
-                <b className="purple">Web Technologies and Products </b> and
-                also in areas related to{" "}
+                <b className="purple">Web Technologies, Mobile Technologies and Products </b> and
+                also interested in areas related to{" "}
                 <b className="purple">
-                  Deep Learning and Natural Launguage Processing.
+                 Machine Learning and Artificial intelligence.
                 </b>
               </i>
               <br />
               <br />
-              Whenever possible, I also apply my passion for developing products
+              {/* Whenever possible, I also apply my passion for developing products
               with <b className="purple">Node.js</b> and
               <i>
                 <b className="purple">
@@ -49,7 +48,7 @@ function HomeAbout() {
               &nbsp; like
               <i>
                 <b className="purple"> React.js and Next.js</b>
-              </i>
+              </i> */}
             </p>
           </Col>
           <Col md={4} className="myAvtar">
