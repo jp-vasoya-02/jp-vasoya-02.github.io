@@ -1,3 +1,20 @@
-# https://www.robotstxt.org/robotstxt.html
+# Search engines and AI assistants are welcome to index this portfolio.
 User-agent: *
-Disallow:
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://jp-vasoya-02.github.io/sitemap.xml

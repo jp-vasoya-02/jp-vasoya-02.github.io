@@ -13,6 +13,7 @@ import Projects from "./components/sections/Projects";
 import GitHubActivity from "./components/sections/GitHubActivity";
 import Skills from "./components/sections/Skills";
 import Education from "./components/sections/Education";
+import FAQ from "./components/sections/FAQ";
 import Contact from "./components/sections/Contact";
 import { initSmoothScroll } from "./lib/scroll";
 
@@ -33,6 +34,7 @@ export default function App() {
         <GitHubActivity />
         <Skills />
         <Education />
+        <FAQ />
         <Contact />
       </main>
       <Footer />
