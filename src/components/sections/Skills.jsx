@@ -41,7 +41,7 @@ function textWidth(text) {
 }
 
 /*
- * Layout: group hubs sit on an ellipse; each group's nodes start on a seeded golden-angle
+ * Layout: the largest group sits at the centre, the other hubs on an ellipse; each group's nodes start on a seeded golden-angle
  * spiral around the hub, then a short box-repulsion pass pushes label boxes apart (within
  * the group) and clamps them inside the field. Computed in px for the measured width.
  */

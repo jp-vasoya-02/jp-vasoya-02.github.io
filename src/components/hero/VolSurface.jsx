@@ -346,7 +346,7 @@ function useMediaQuery(query) {
   return matches;
 }
 
-const INTERACTIVE = "a, button, input, textarea, select, label, [role='button'], [tabindex]";
+const INTERACTIVE = "a, button, input, textarea, select, [role='button']";
 
 /**
  * Decorative WebGL background. Pointer events are read from `eventSource`

@@ -68,46 +68,45 @@ export default function Experience() {
           <motion.div className="xp-rail-fill" style={{ scaleY: reduced ? 1 : fill }} />
         </div>
         <ol className="xp-list">
-
-        {experience.map((job, i) => {
-          const on = reduced || active[i];
-          const chips = highlights[job.company] || [];
-          return (
-            <li key={job.company + job.period} className={`xp-item${on ? " is-active" : ""}`}>
-              <div className="xp-period mono">{job.period}</div>
-              <div className="xp-node-col" aria-hidden="true">
-                <span ref={(el) => (nodeRefs.current[i] = el)} className="xp-node" />
-              </div>
-              <Reveal className="xp-body">
-                <div className="xp-period-inline mono">{job.period}</div>
-                <h3 className="xp-role">{job.role}</h3>
-                <p className="xp-company">
-                  <span>{job.company}</span>
-                  {job.location && (
-                    <>
-                      <span className="xp-dot" aria-hidden="true">
-                        ·
-                      </span>
-                      <span className="muted">{job.location}</span>
-                    </>
+          {experience.map((job, i) => {
+            const on = reduced || active[i];
+            const chips = highlights[job.company] || [];
+            return (
+              <li key={job.company + job.period} className={`xp-item${on ? " is-active" : ""}`}>
+                <div className="xp-period mono">{job.period}</div>
+                <div className="xp-node-col" aria-hidden="true">
+                  <span ref={(el) => (nodeRefs.current[i] = el)} className="xp-node" />
+                </div>
+                <Reveal className="xp-body">
+                  <div className="xp-period-inline mono">{job.period}</div>
+                  <h3 className="xp-role">{job.role}</h3>
+                  <p className="xp-company">
+                    <span>{job.company}</span>
+                    {job.location && (
+                      <>
+                        <span className="xp-dot" aria-hidden="true">
+                          ·
+                        </span>
+                        <span className="muted">{job.location}</span>
+                      </>
+                    )}
+                  </p>
+                  {chips.length > 0 && (
+                    <ul className="xp-chips" aria-label="Highlights">
+                      {chips.map((c) => (
+                        <li key={c}>{c}</li>
+                      ))}
+                    </ul>
                   )}
-                </p>
-                {chips.length > 0 && (
-                  <ul className="xp-chips" aria-label="Highlights">
-                    {chips.map((c) => (
-                      <li key={c}>{c}</li>
+                  <ul className="xp-points">
+                    {job.points.map((pt) => (
+                      <li key={pt}>{pt}</li>
                     ))}
                   </ul>
-                )}
-                <ul className="xp-points">
-                  {job.points.map((pt) => (
-                    <li key={pt}>{pt}</li>
-                  ))}
-                </ul>
-              </Reveal>
-            </li>
-          );
-        })}
+                </Reveal>
+              </li>
+            );
+          })}
         </ol>
       </div>
     </Section>
