@@ -1,21 +1,14 @@
 {
   "files": {
-    "main.css": "/static/css/main.a35981be.css",
-    "main.js": "/static/js/main.5faa245b.js",
-    "static/js/787.d16e9580.chunk.js": "/static/js/787.d16e9580.chunk.js",
-    "static/media/cv_jaydip.vasoya_updated.pdf": "/static/media/cv_jaydip.vasoya_updated.cd8bf2b805ff82884936.pdf",
-    "static/media/home-main.svg": "/static/media/home-main.541f8179af8209ce03ccf2178fe62dbf.svg",
-    "static/media/about.png": "/static/media/about.aee0f771fbfc1e7b8fa8.png",
-    "static/media/home-bg.jpg": "/static/media/home-bg.dc52d5d40a40b13154b0.jpg",
-    "static/media/avatar.svg": "/static/media/avatar.5852f40fbb38aa284829fa3fb7722225.svg",
-    "static/media/pre.svg": "/static/media/pre.d4812f51c8c80976eaab.svg",
+    "main.css": "/static/css/main.d71afc9d.css",
+    "main.js": "/static/js/main.aa5635ec.js",
+    "static/media/Jaydip_Vasoya_Resume.pdf": "/static/media/Jaydip_Vasoya_Resume.73fbc0968538db21b2b7.pdf",
     "index.html": "/index.html",
-    "main.a35981be.css.map": "/static/css/main.a35981be.css.map",
-    "main.5faa245b.js.map": "/static/js/main.5faa245b.js.map",
-    "787.d16e9580.chunk.js.map": "/static/js/787.d16e9580.chunk.js.map"
+    "main.d71afc9d.css.map": "/static/css/main.d71afc9d.css.map",
+    "main.aa5635ec.js.map": "/static/js/main.aa5635ec.js.map"
   },
   "entrypoints": [
-    "static/css/main.a35981be.css",
-    "static/js/main.5faa245b.js"
+    "static/css/main.d71afc9d.css",
+    "static/js/main.aa5635ec.js"
   ]
 }
