@@ -10,8 +10,8 @@
 - Portfolio: https://jp-vasoya-02.github.io/
 
 ## Experience
-- Senior Full Stack FinTech and AI Engineer, Freelance (Jan 2025 – Present): Long term engineering partner for an options analytics company, delivering four connected products: a web analytics platform, a real time market data pipeline, a desktop AI app, and a voice AI assistant.
-- Senior Software Engineer and Partner, LNX Cloud Technology (Jan 2020 – Jan 2025): Led the architecture and development of scalable cloud applications for clients in FinTech, SaaS, and social media.
+- Senior Full Stack FinTech and AI Engineer, Freelance (Jan 2025 to Present): Long term engineering partner for an options analytics company, delivering four connected products: a web analytics platform, a real time market data pipeline, a desktop AI app, and a voice AI assistant.
+- Senior Software Engineer and Partner, LNX Cloud Technology (Jan 2020 to Jan 2025): Led the architecture and development of scalable cloud applications for clients in FinTech, SaaS, and social media.
 
 ## Key projects
 - AI Options Analytics Platform: Core engineer on a subscription platform with four pricing tiers and 130+ analytics pages for options flow, dark pool, and volatility data, updated live over 100+ WebSocket routes. Stack: Django, DRF, Channels, Celery, PostgreSQL, Redis, AWS Bedrock, LangGraph, LangFuse, Stripe.
@@ -30,8 +30,8 @@
 - Quality and Leadership: Pytest, Unit and integration testing, Code review, Technical leadership, Mentoring, Client communication
 
 ## Education
-- Bachelor of Computer Application, Computer Science, Saurashtra University, Rajkot (Oct 2019 – Mar 2022), CGPA 8.75, First Distinction
-- Bachelor's Degree, Information Technology, LDRP Institute of Technology and Research, Gandhinagar (Kadi Sarva Vishwavidyalaya) (Jul 2017 – Aug 2019)
+- Bachelor of Computer Application, Computer Science, Saurashtra University, Rajkot (Oct 2019 to Mar 2022), CGPA 8.75, First Distinction
+- Bachelor's Degree, Information Technology, LDRP Institute of Technology and Research, Gandhinagar (Kadi Sarva Vishwavidyalaya) (Jul 2017 to Aug 2019)
 
 ## FAQ
 ### What does Jaydip Vasoya specialize in?
