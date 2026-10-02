@@ -26,7 +26,12 @@ export function scrollToId(id) {
   else window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY + offset });
 }
 
-export function lockScroll(locked) {
+// Reference-counted so overlapping overlays (palette, modal) can't unlock each other.
+let locks = 0;
+
+export function lockScroll(on) {
+  locks = Math.max(0, locks + (on ? 1 : -1));
+  const locked = locks > 0;
   if (lenis) (locked ? lenis.stop() : lenis.start());
   document.documentElement.style.overflow = locked ? "hidden" : "";
 }

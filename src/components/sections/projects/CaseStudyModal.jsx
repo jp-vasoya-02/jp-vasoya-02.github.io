@@ -30,7 +30,14 @@ export default function CaseStudyModal({ project, index, onClose }) {
   useEffect(() => {
     if (!isPresent) return undefined; // closing: let focus go back to the card
     const onKey = (e) => {
+      // Keep the command palette from opening underneath the modal.
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
+        e.preventDefault();
+        e.stopPropagation();
+        return;
+      }
       if (e.key === "Escape") {
+        if (panelRef.current && !panelRef.current.contains(document.activeElement)) return;
         e.stopPropagation();
         onClose();
         return;
@@ -71,7 +78,11 @@ export default function CaseStudyModal({ project, index, onClose }) {
       transition={{ duration: reduced ? 0.15 : 0.3 }}
       style={{ pointerEvents: isPresent ? "auto" : "none" }}
       onMouseDown={(e) => {
-        if (e.target === e.currentTarget) onClose();
+        if (e.target === e.currentTarget) {
+          // Stop the default mousedown from moving focus to <body> after onClose refocuses the card.
+          e.preventDefault();
+          onClose();
+        }
       }}
     >
       <motion.div

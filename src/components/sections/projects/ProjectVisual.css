@@ -173,11 +173,11 @@
   font-weight: 600;
 }
 
-.is-up {
+.pv .is-up {
   color: var(--up);
 }
 
-.is-down {
+.pv .is-down {
   color: var(--down);
 }
 

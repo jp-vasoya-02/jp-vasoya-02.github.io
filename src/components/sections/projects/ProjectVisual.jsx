@@ -249,12 +249,13 @@ function VoiceVisual({ active, reduced }) {
 
 const VISUALS = { agent: AgentVisual, flow: FlowVisual, mcp: McpVisual, voice: VoiceVisual };
 
-export default function ProjectVisual({ type }) {
+export default function ProjectVisual({ type, paused = false }) {
   const ref = useRef(null);
   const inView = useInView(ref, { margin: "-40px" });
   const reduced = useReducedMotion();
   const Visual = VISUALS[type] ?? AgentVisual;
-  const active = inView && !reduced;
+  // Paused while a case study covers the page, so hidden visuals stop animating.
+  const active = inView && !reduced && !paused;
 
   return (
     <div

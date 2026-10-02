@@ -35,7 +35,7 @@ export default function Projects() {
       <div className="bento">
         {projects.map((p, i) => (
           <Reveal key={p.id} delay={(i % 2) * 0.08} className={`bento-cell bento-cell--${i}`}>
-            <ProjectCard project={p} index={i} onOpen={open} />
+            <ProjectCard project={p} index={i} onOpen={open} paused={!!active} />
           </Reveal>
         ))}
       </div>

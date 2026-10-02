@@ -34,7 +34,9 @@ export default function CommandPalette() {
   }, []);
 
   useEffect(() => {
-    lockScroll(open);
+    if (!open) return undefined;
+    lockScroll(true);
+    return () => lockScroll(false);
   }, [open]);
 
   const run = (fn) => () => {

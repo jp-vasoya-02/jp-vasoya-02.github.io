@@ -12,7 +12,7 @@ const KICKERS = {
 
 const MAX_TILT = 4; // degrees
 
-export default function ProjectCard({ project, index, onOpen }) {
+export default function ProjectCard({ project, index, onOpen, paused }) {
   const ref = useRef(null);
   const reduced = useReducedMotion();
 
@@ -49,7 +49,7 @@ export default function ProjectCard({ project, index, onOpen }) {
       aria-labelledby={titleId}
     >
       <div className="pcard-visual">
-        <ProjectVisual type={project.visual} />
+        <ProjectVisual type={project.visual} paused={paused} />
       </div>
       <div className="pcard-body">
         <p className="pcard-kicker mono">
