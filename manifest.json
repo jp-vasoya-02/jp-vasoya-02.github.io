@@ -3,13 +3,13 @@
   "name": "Jaydip Vasoya's Portfolio",
   "icons": [
     {
-      "src": "favicon.ico",
-      "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/x-icon"
+      "src": "favicon.png",
+      "sizes": "64x64",
+      "type": "image/png"
     }
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#0b0f17",
-  "background_color": "#0b0f17"
+  "theme_color": "#08090c",
+  "background_color": "#08090c"
 }
