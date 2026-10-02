@@ -1,0 +1,53 @@
+# Jaydip Vasoya
+
+> Senior Full Stack Engineer (Python, Django, React, AWS · AI Agents and FinTech), based in Ahmedabad, India. Senior Full Stack Engineer with over 6 years of experience building FinTech platforms and production AI products. Recent work includes an LLM research agent on Claude and AWS Bedrock, a desktop AI assistant that reads and controls live trading charts through a Model Context Protocol (MCP) server, a real time voice AI assistant, and a market data pipeline that processes the US options (OPRA) firehose. Comfortable owning a product from architecture to production and working directly with clients.
+
+## Contact
+- Email: jpvasoya444@gmail.com
+- GitHub: https://github.com/jp-vasoya-02
+- LinkedIn: https://www.linkedin.com/in/jaydip-vasoya
+- Resume (PDF): https://jp-vasoya-02.github.io/Jaydip_Vasoya_Resume.pdf
+- Portfolio: https://jp-vasoya-02.github.io/
+
+## Experience
+- Senior Full Stack FinTech and AI Engineer, Freelance (Jan 2025 – Present): Long term engineering partner for an options analytics company, delivering four connected products: a web analytics platform, a real time market data pipeline, a desktop AI app, and a voice AI assistant.
+- Senior Software Engineer and Partner, LNX Cloud Technology (Jan 2020 – Jan 2025): Led the architecture and development of scalable cloud applications for clients in FinTech, SaaS, and social media.
+
+## Key projects
+- AI Options Analytics Platform: Core engineer on a subscription platform with four pricing tiers and 130+ analytics pages for options flow, dark pool, and volatility data, updated live over 100+ WebSocket routes. Stack: Django, DRF, Channels, Celery, PostgreSQL, Redis, AWS Bedrock, LangGraph, LangFuse, Stripe.
+- Real Time Options Flow and Dark Pool Pipeline: A market data pipeline built to hold up under traffic bursts from the US options (OPRA) firehose and dark pool trades. Stack: Python, Redis Streams, RediSearch, WebSockets, Multithreading, AWS S3, PM2.
+- AI Desktop Trading Assistant: A cross platform Electron app where an AI agent reads and controls live TradingView charts. Stack: Electron, React, TypeScript, Tailwind CSS, Anthropic SDK, AWS Bedrock, Gemini, MCP.
+- Voice AI Trading Assistant: A browser based voice assistant with a live transcript, built on Django Channels. Stack: Python, Django Channels, Celery, PostgreSQL, Redis, Gemini Live, ElevenLabs, Docker, Pytest.
+
+## Skills
+- Languages: Python, TypeScript, JavaScript, SQL
+- Backend: Django, Django REST Framework, Django Channels, FastAPI, Flask, Node.js, Celery, WebSockets, REST APIs
+- AI and LLM Engineering: Anthropic Claude, AWS Bedrock, Gemini Live API, OpenAI, LangGraph, LangChain, DeepAgents, LangFuse, MCP, AI Agents, Tool Calling, Multi Agent Systems, RAG, Prompt Caching, Voice AI (ElevenLabs), Hugging Face, Stable Diffusion, LoRA
+- FinTech: Real time market data, OPRA options feed, Options flow and dark pool analytics, TradingView integration, Stripe billing
+- Frontend and Desktop: React.js, Next.js, Electron, React Native, Redux, Zustand, Tailwind CSS, Material UI, Three.js
+- Databases: PostgreSQL, Redis (Streams, RediSearch), MySQL, DynamoDB, Amazon RDS
+- Cloud and DevOps: AWS (EC2, RDS, S3, Lambda, ECS, API Gateway, AppSync, CloudFront…), Docker, Kubernetes, Nginx, GitHub Actions, CI/CD, Microservices, Grafana
+- Quality and Leadership: Pytest, Unit and integration testing, Code review, Technical leadership, Mentoring, Client communication
+
+## Education
+- Bachelor of Computer Application, Computer Science, Saurashtra University, Rajkot (Oct 2019 – Mar 2022), CGPA 8.75, First Distinction
+- Bachelor's Degree, Information Technology, LDRP Institute of Technology and Research, Gandhinagar (Kadi Sarva Vishwavidyalaya) (Jul 2017 – Aug 2019)
+
+## FAQ
+### What does Jaydip Vasoya specialize in?
+Jaydip is a Senior Full Stack Engineer who builds FinTech platforms and production AI products: LLM agents on Claude and AWS Bedrock, Model Context Protocol (MCP) servers, real time voice assistants, and market data pipelines for the US options (OPRA) feed.
+
+### Is Jaydip available for freelance or full-time work?
+Yes. He takes freelance engagements and is open to senior full stack or AI engineering roles. Email jpvasoya444@gmail.com to start a conversation.
+
+### What is Jaydip's tech stack?
+Python, Django, Django REST Framework, Django Channels, FastAPI, Celery, React, Next.js, TypeScript, Electron, PostgreSQL, Redis Streams and AWS (EC2, RDS, S3, Lambda, ECS, Bedrock), plus LangGraph, LangChain and MCP for AI agents.
+
+### Has Jaydip built production AI agents?
+Yes. He built an AI research agent on Claude via AWS Bedrock with 16 tools and token streaming, a desktop trading assistant driven by an MCP server with 105 tools, and a voice AI assistant with 56 tools covered by more than 1,500 automated tests.
+
+### How many years of experience does Jaydip have?
+Over 6 years building production software, including five years as Senior Software Engineer and Partner at LNX Cloud Technology and freelance FinTech and AI work since January 2025.
+
+### Where is Jaydip based and which time zones does he work in?
+He is based in Ahmedabad, India (IST, UTC+5:30) and works remotely with clients and teams worldwide.
