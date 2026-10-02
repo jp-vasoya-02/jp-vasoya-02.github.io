@@ -199,3 +199,31 @@ export const ticker = [
 
 // Suggested prompts for the "Ask my agent" terminal. Answers are built from the data above.
 export const terminalPrompts = ["whoami", "projects", "stack", "experience", "hire", "resume"];
+
+// Direct, quotable answers for the FAQ section, the prerendered HTML and FAQPage schema.
+export const faq = [
+  {
+    q: "What does Jaydip Vasoya specialize in?",
+    a: "Jaydip is a Senior Full Stack Engineer who builds FinTech platforms and production AI products: LLM agents on Claude and AWS Bedrock, Model Context Protocol (MCP) servers, real time voice assistants, and market data pipelines for the US options (OPRA) feed.",
+  },
+  {
+    q: "Is Jaydip available for freelance or full-time work?",
+    a: "Yes. He takes freelance engagements and is open to senior full stack or AI engineering roles. Email jpvasoya444@gmail.com to start a conversation.",
+  },
+  {
+    q: "What is Jaydip's tech stack?",
+    a: "Python, Django, Django REST Framework, Django Channels, FastAPI, Celery, React, Next.js, TypeScript, Electron, PostgreSQL, Redis Streams and AWS (EC2, RDS, S3, Lambda, ECS, Bedrock), plus LangGraph, LangChain and MCP for AI agents.",
+  },
+  {
+    q: "Has Jaydip built production AI agents?",
+    a: "Yes. He built an AI research agent on Claude via AWS Bedrock with 16 tools and token streaming, a desktop trading assistant driven by an MCP server with 105 tools, and a voice AI assistant with 56 tools covered by more than 1,500 automated tests.",
+  },
+  {
+    q: "How many years of experience does Jaydip have?",
+    a: "Over 6 years building production software, including five years as Senior Software Engineer and Partner at LNX Cloud Technology and freelance FinTech and AI work since January 2025.",
+  },
+  {
+    q: "Where is Jaydip based and which time zones does he work in?",
+    a: "He is based in Ahmedabad, India (IST, UTC+5:30) and works remotely with clients and teams worldwide.",
+  },
+];

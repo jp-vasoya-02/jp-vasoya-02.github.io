@@ -281,3 +281,39 @@ html.lenis, html.lenis body { height: auto; }
   color: var(--accent);
   background: rgba(255, 255, 255, 0.04);
 }
+
+/* Build-time HTML for crawlers and no-JS visitors; React replaces it on load. */
+.prerender {
+  padding: calc(var(--nav-h) + 48px) 0 64px;
+  color: var(--text-2);
+}
+
+.prerender h1 {
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+.prerender h2 {
+  margin: 48px 0 12px;
+  color: var(--text);
+}
+
+.prerender h3 {
+  margin: 20px 0 6px;
+  font-size: 1.05rem;
+  color: var(--text);
+}
+
+.prerender p,
+.prerender li {
+  max-width: 760px;
+}
+
+.prerender ul {
+  padding-left: 1.2rem;
+}
+
+.prerender a {
+  color: var(--accent);
+}

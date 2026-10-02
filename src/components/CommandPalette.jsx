@@ -64,6 +64,9 @@ export default function CommandPalette() {
               <HiOutlineArrowRight /> {s.label}
             </Command.Item>
           ))}
+          <Command.Item value="go faq questions" onSelect={run(() => scrollToId("faq"))}>
+            <HiOutlineArrowRight /> FAQ
+          </Command.Item>
         </Command.Group>
 
         <Command.Group heading="Actions">

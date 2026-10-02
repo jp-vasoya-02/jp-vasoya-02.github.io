@@ -1,8 +1,9 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import seoPlugin from "./seo/plugin.js";
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), seoPlugin()],
   base: "/",
   build: {
     // `npm run deploy` publishes this folder to the gh-pages branch.
