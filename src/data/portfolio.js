@@ -9,6 +9,7 @@ export const profile = {
   github: "https://github.com/jp-vasoya-02",
   linkedin: "https://www.linkedin.com/in/jaydip-vasoya",
   blog: "https://jpvasoya.blogspot.com/",
+  resume: "/Jaydip_Vasoya_Resume.pdf",
   summary:
     "Senior Full Stack Engineer with over 6 years of experience building FinTech platforms and production AI products. Recent work includes an LLM research agent on Claude and AWS Bedrock, a desktop AI assistant that reads and controls live trading charts through a Model Context Protocol (MCP) server, a real time voice AI assistant, and a market data pipeline that processes the US options (OPRA) firehose. Comfortable owning a product from architecture to production and working directly with clients.",
 };
@@ -50,7 +51,10 @@ export const experience = [
 
 export const projects = [
   {
+    id: "agent-platform",
+    visual: "agent",
     title: "AI Options Analytics Platform",
+    flow: ["Browser", "WebSocket gateway", "DeepAgent (Claude via Bedrock)", "16 tools", "Postgres state", "LangFuse traces"],
     description:
       "Core engineer on a subscription platform with four pricing tiers and 130+ analytics pages for options flow, dark pool, and volatility data, updated live over 100+ WebSocket routes.",
     points: [
@@ -61,7 +65,10 @@ export const projects = [
     tech: ["Django", "DRF", "Channels", "Celery", "PostgreSQL", "Redis", "AWS Bedrock", "LangGraph", "LangFuse", "Stripe"],
   },
   {
+    id: "opra-pipeline",
+    visual: "flow",
     title: "Real Time Options Flow and Dark Pool Pipeline",
+    flow: ["OPRA firehose", "Bounded queue (50k)", "Redis Streams", "60s aggregation × 8", "WebSocket fan-out", "Analytics UI"],
     description:
       "A market data pipeline built to hold up under traffic bursts from the US options (OPRA) firehose and dark pool trades.",
     points: [
@@ -72,7 +79,10 @@ export const projects = [
     tech: ["Python", "Redis Streams", "RediSearch", "WebSockets", "Multithreading", "AWS S3", "PM2"],
   },
   {
+    id: "desktop-agent",
+    visual: "mcp",
     title: "AI Desktop Trading Assistant",
+    flow: ["User prompt", "Agent loop (Claude / Bedrock / Gemini)", "Approval gateway", "MCP server (105 tools)", "Chrome DevTools Protocol", "Live TradingView chart"],
     description:
       "A cross platform Electron app where an AI agent reads and controls live TradingView charts.",
     points: [
@@ -83,7 +93,10 @@ export const projects = [
     tech: ["Electron", "React", "TypeScript", "Tailwind CSS", "Anthropic SDK", "AWS Bedrock", "Gemini", "MCP"],
   },
   {
+    id: "voice-agent",
+    visual: "voice",
     title: "Voice AI Trading Assistant",
+    flow: ["Microphone", "Django Channels", "Gemini Live / ElevenLabs", "56 tools via asyncio", "Metering & spend caps", "Spoken reply"],
     description:
       "A browser based voice assistant with a live transcript, built on Django Channels.",
     points: [
@@ -174,3 +187,15 @@ export const education = [
     period: "Jul 2017 – Aug 2019",
   },
 ];
+
+// Scrolling "ticker tape" under the hero.
+export const ticker = [
+  { symbol: "PYTHON", note: "6Y" }, { symbol: "DJANGO", note: "DRF · CHANNELS" }, { symbol: "REACT", note: "TS" },
+  { symbol: "CLAUDE", note: "BEDROCK" }, { symbol: "LANGGRAPH", note: "AGENTS" }, { symbol: "MCP", note: "105 TOOLS" },
+  { symbol: "REDIS", note: "STREAMS" }, { symbol: "POSTGRES", note: "RDS" }, { symbol: "AWS", note: "EC2 · LAMBDA · ECS" },
+  { symbol: "OPRA", note: "FIREHOSE" }, { symbol: "WEBSOCKETS", note: "100+ ROUTES" }, { symbol: "ELECTRON", note: "DESKTOP" },
+  { symbol: "GEMINI", note: "LIVE API" }, { symbol: "DOCKER", note: "K8S" }, { symbol: "STRIPE", note: "BILLING" },
+];
+
+// Suggested prompts for the "Ask my agent" terminal. Answers are built from the data above.
+export const terminalPrompts = ["whoami", "projects", "stack", "experience", "hire", "resume"];

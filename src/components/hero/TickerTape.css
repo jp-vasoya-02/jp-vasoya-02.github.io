@@ -1,0 +1,83 @@
+.ticker {
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: rgba(10, 11, 15, 0.55);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker-scroll 70s linear infinite;
+  will-change: transform;
+}
+
+.ticker:hover .ticker-track {
+  animation-play-state: paused;
+}
+
+.ticker-list {
+  display: flex;
+  flex-shrink: 0;
+  list-style: none;
+}
+
+.ticker-item {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 7px;
+  padding: 13px 0;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+/* Subtle dot separator after every item (including the last, so the seam matches). */
+.ticker-item::after {
+  content: "";
+  align-self: center;
+  width: 3px;
+  height: 3px;
+  margin: 0 22px 0 15px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.ticker-symbol {
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 0.04em;
+}
+
+.ticker-up {
+  font-size: 0.6rem;
+  color: var(--up);
+  transform: translateY(-1px);
+}
+
+.ticker-note {
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+
+@keyframes ticker-scroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track {
+    animation: none;
+  }
+}

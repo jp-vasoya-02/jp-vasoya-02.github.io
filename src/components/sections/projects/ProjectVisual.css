@@ -1,0 +1,392 @@
+/* Mini animated visuals at the top of each project card. */
+.pv {
+  position: relative;
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  height: 200px;
+  padding: 16px 18px;
+  overflow: hidden;
+  font-size: 0.78rem;
+  color: var(--text-2);
+}
+
+/* Pause everything off screen; freeze completely for reduced motion. */
+.pv[data-active="false"] *,
+.pv[data-active="false"] *::before,
+.pv[data-active="false"] *::after {
+  animation-play-state: paused !important;
+}
+
+.pv[data-static="true"] *,
+.pv[data-static="true"] *::before,
+.pv[data-static="true"] *::after {
+  animation: none !important;
+  transition: none !important;
+}
+
+.pv > * {
+  flex: 1;
+  min-height: 0;
+}
+
+/* ---------- agent ---------- */
+.pv-agent {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 100%;
+  max-width: 460px;
+  margin: 0 auto;
+  justify-content: flex-start;
+}
+
+.pv-bubble {
+  max-width: 85%;
+  padding: 7px 11px;
+  border-radius: 12px;
+  line-height: 1.45;
+}
+
+.pv-bubble--user {
+  align-self: flex-end;
+  background: rgba(129, 140, 248, 0.16);
+  border: 1px solid rgba(129, 140, 248, 0.28);
+  color: var(--text);
+  border-bottom-right-radius: 4px;
+}
+
+.pv-bubble--agent {
+  align-self: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border);
+  border-bottom-left-radius: 4px;
+  color: var(--text);
+}
+
+.pv-tool {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px dashed rgba(94, 234, 212, 0.35);
+  background: rgba(94, 234, 212, 0.06);
+  color: var(--accent);
+  font-size: 0.72rem;
+}
+
+.pv-tool-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  animation: pv-pulse 0.9s ease-in-out infinite;
+}
+
+.pv-tool.is-done .pv-tool-dot {
+  animation: none;
+  background: var(--up);
+  box-shadow: 0 0 8px var(--up);
+}
+
+.pv-tool-status {
+  color: var(--muted);
+  font-size: 0.68rem;
+}
+
+.pv-line {
+  display: block;
+  min-height: 1.45em;
+}
+
+.pv-line-text {
+  display: inline-block;
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 0.6s linear;
+}
+
+.pv-line.is-shown .pv-line-text {
+  clip-path: inset(0 0 0 0);
+}
+
+@keyframes pv-pulse {
+  50% {
+    opacity: 0.25;
+  }
+}
+
+/* ---------- flow ---------- */
+.pv-flow {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  font-size: 0.72rem;
+}
+
+.pv-flow-head,
+.pv-flow-row {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr 0.6fr 1fr 0.8fr;
+  gap: 6px;
+  align-items: center;
+  padding: 0 8px;
+}
+
+.pv-flow-head {
+  color: var(--muted);
+  font-size: 0.64rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--border);
+}
+
+.pv-flow-rows {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  margin-top: 4px;
+  -webkit-mask-image: linear-gradient(180deg, #000 70%, transparent);
+  mask-image: linear-gradient(180deg, #000 70%, transparent);
+}
+
+.pv-flow-row {
+  height: 24px;
+  border-radius: 6px;
+  color: var(--text-2);
+  white-space: nowrap;
+}
+
+.pv-flow-row span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pv-flow-sym {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.pv .is-up {
+  color: var(--up);
+}
+
+.pv .is-down {
+  color: var(--down);
+}
+
+.pv-queue {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.66rem;
+  color: var(--muted);
+}
+
+.pv-queue-track {
+  position: relative;
+  flex: 1;
+  height: 4px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.06);
+  overflow: hidden;
+}
+
+.pv-queue-fill {
+  position: absolute;
+  inset: 0;
+  transform-origin: left;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+  border-radius: inherit;
+  transition: transform 0.9s var(--ease-out);
+}
+
+/* ---------- mcp ---------- */
+.pv-mcp {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 12px;
+}
+
+.pv-mcp-top {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.pv-mcp-grid {
+  display: grid;
+  grid-template-columns: repeat(15, 9px);
+  gap: 4px;
+}
+
+.pv-cell {
+  width: 9px;
+  height: 9px;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.07);
+  animation: pv-cell 3.2s ease-out infinite;
+}
+
+.pv-cell.is-alt {
+  --cell: var(--accent-2);
+  background: rgba(129, 140, 248, 0.12);
+}
+
+@keyframes pv-cell {
+  0%,
+  45%,
+  100% {
+    background: rgba(255, 255, 255, 0.07);
+    box-shadow: none;
+  }
+  10% {
+    background: var(--cell, var(--accent));
+    box-shadow: 0 0 8px var(--cell, var(--accent));
+  }
+}
+
+.pv-mcp-count {
+  font-size: 0.7rem;
+  color: var(--text-2);
+  white-space: nowrap;
+}
+
+.pv-mcp-count strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
+.pv-mcp-chart {
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  overflow: visible;
+}
+
+.pv-mcp-level {
+  stroke: var(--accent-2);
+  stroke-width: 1;
+  stroke-dasharray: 4 4;
+  opacity: 0.6;
+  vector-effect: non-scaling-stroke;
+}
+
+.pv-mcp-line {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 1.6;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+  filter: drop-shadow(0 0 4px rgba(94, 234, 212, 0.5));
+  animation: pv-draw 4s var(--ease-out) infinite;
+}
+
+@keyframes pv-draw {
+  0% {
+    stroke-dashoffset: 1;
+  }
+  70%,
+  90% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
+}
+
+/* ---------- voice ---------- */
+.pv-voice {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 10px;
+}
+
+.pv-voice-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 0.68rem;
+}
+
+.pv-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--down);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.pv-live-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--down);
+  box-shadow: 0 0 8px var(--down);
+  animation: pv-pulse 1.2s ease-in-out infinite;
+}
+
+.pv-wave {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+}
+
+.pv-bar {
+  flex: 0 1 3px;
+  min-width: 2px;
+  height: 100%;
+  border-radius: 3px;
+  background: linear-gradient(180deg, var(--accent-2), var(--accent) 50%, var(--accent-2));
+  transform: scaleY(calc(var(--h) * 0.7));
+  animation: pv-bar 1s ease-in-out infinite alternate;
+  opacity: 0.9;
+}
+
+@keyframes pv-bar {
+  from {
+    transform: scaleY(calc(var(--h) * 0.18));
+  }
+  to {
+    transform: scaleY(var(--h));
+  }
+}
+
+.pv-caption {
+  min-height: 2.9em;
+  font-size: 0.82rem;
+  color: var(--text);
+  line-height: 1.45;
+}
+
+.pv-who {
+  display: inline-block;
+  margin-right: 8px;
+  font-size: 0.66rem;
+  color: var(--accent-2);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.pv-who.is-agent {
+  color: var(--accent);
+}
