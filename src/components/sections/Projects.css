@@ -1,0 +1,326 @@
+/* ---------- Bento grid ---------- */
+.bento {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 56px;
+}
+
+.bento-cell {
+  display: flex;
+  min-width: 0;
+}
+
+.bento-cell--0 { grid-column: span 4; }
+.bento-cell--1 { grid-column: span 2; }
+.bento-cell--2 { grid-column: span 2; }
+.bento-cell--3 { grid-column: span 4; }
+
+/* ---------- Project card ---------- */
+.pcard {
+  --mx: 50%;
+  --my: 0%;
+  --rx: 0deg;
+  --ry: 0deg;
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 0;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.035), rgba(255, 255, 255, 0.012)), var(--bg);
+  transform: perspective(1200px) rotateX(var(--rx)) rotateY(var(--ry));
+  transition:
+    transform 0.6s var(--ease-out),
+    border-color 0.3s,
+    box-shadow 0.4s;
+}
+
+/* Cursor-follow spotlight */
+.pcard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: radial-gradient(420px circle at var(--mx) var(--my), rgba(94, 234, 212, 0.075), transparent 45%);
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+}
+
+/* Gradient border glow that follows the cursor */
+.pcard::after {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: radial-gradient(
+    300px circle at var(--mx) var(--my),
+    rgba(94, 234, 212, 0.7),
+    rgba(129, 140, 248, 0.45) 40%,
+    transparent 70%
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box exclude,
+    linear-gradient(#000 0 0);
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+}
+
+.pcard:hover {
+  box-shadow: 0 30px 80px -40px rgba(94, 234, 212, 0.25);
+}
+
+.pcard:hover::before,
+.pcard:hover::after,
+.pcard:focus-within::after {
+  opacity: 1;
+}
+
+/* The visual absorbs spare height so wide and narrow cards in a row stay balanced. */
+.pcard-visual {
+  position: relative;
+  flex: 1 0 auto;
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid var(--border);
+  border-radius: calc(var(--radius) - 1px) calc(var(--radius) - 1px) 0 0;
+  overflow: hidden;
+  background:
+    radial-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px) 0 0 / 16px 16px,
+    linear-gradient(180deg, rgba(129, 140, 248, 0.05), transparent 80%);
+}
+
+.pcard-visual::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 28px;
+  background: linear-gradient(transparent, rgba(8, 9, 12, 0.6));
+  pointer-events: none;
+}
+
+.pcard-body {
+  display: flex;
+  flex-direction: column;
+  padding: 22px 24px 24px;
+}
+
+.pcard-kicker {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.72rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.pcard-kicker > span:first-child {
+  color: var(--accent);
+}
+
+.pcard-kicker-sep {
+  width: 14px;
+  height: 1px;
+  background: var(--border-strong);
+}
+
+.pcard-title {
+  margin-top: 12px;
+  font-size: 1.28rem;
+  letter-spacing: -0.02em;
+}
+
+.pcard-trigger {
+  padding: 0;
+  text-align: left;
+  line-height: inherit;
+  letter-spacing: inherit;
+  font-weight: inherit;
+  color: var(--text);
+}
+
+/* Stretch the trigger over the whole card. */
+.pcard-trigger::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: var(--radius);
+}
+
+.pcard-trigger:focus-visible {
+  outline: none;
+}
+
+.pcard-trigger:focus-visible::after {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+.pcard-desc {
+  margin-top: 10px;
+  color: var(--text-2);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.pcard-tags {
+  margin-top: 18px;
+}
+
+.tags li.pcard-more {
+  color: var(--muted);
+  border-style: dashed;
+}
+
+.pcard-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  padding-top: 22px;
+  font-size: 0.86rem;
+  font-weight: 500;
+  color: var(--accent);
+}
+
+.pcard-cta svg {
+  transition: transform 0.3s var(--ease-out);
+}
+
+.pcard:hover .pcard-cta svg,
+.pcard:focus-within .pcard-cta svg {
+  transform: translateX(4px);
+}
+
+/* ---------- More projects ---------- */
+.more {
+  margin-top: 96px;
+}
+
+.more-title {
+  font-size: 1.35rem;
+  letter-spacing: -0.02em;
+  color: var(--text);
+}
+
+.more-grid {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.more-item {
+  display: flex;
+  min-width: 0;
+}
+
+.more-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 22px 22px 24px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  background: var(--surface);
+  transition:
+    transform 0.4s var(--ease-out),
+    border-color 0.3s,
+    background-color 0.3s;
+}
+
+.more-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-strong);
+  background: var(--surface-hover);
+}
+
+.more-index {
+  font-size: 0.74rem;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  transition: color 0.3s;
+}
+
+.more-card:hover .more-index {
+  color: var(--accent-2);
+}
+
+.more-name {
+  margin-top: 12px;
+  font-size: 1.02rem;
+  letter-spacing: -0.015em;
+}
+
+.more-desc {
+  margin-top: 8px;
+  color: var(--text-2);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1023px) {
+  .bento {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .bento-cell--0,
+  .bento-cell--1,
+  .bento-cell--2,
+  .bento-cell--3 {
+    grid-column: span 1;
+  }
+
+  .more-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 767px) {
+  .bento {
+    grid-template-columns: minmax(0, 1fr);
+    margin-top: 40px;
+  }
+
+  .pcard-body {
+    padding: 20px;
+  }
+
+  .more {
+    margin-top: 72px;
+  }
+
+  .more-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (hover: none) {
+  .pcard {
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pcard {
+    transform: none;
+  }
+
+  .more-card:hover {
+    transform: none;
+  }
+}

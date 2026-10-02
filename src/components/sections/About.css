@@ -1,0 +1,62 @@
+.about-statement {
+  max-width: 980px;
+  font-size: clamp(1.45rem, 3vw, 2.2rem);
+  font-weight: 500;
+  line-height: 1.32;
+  letter-spacing: -0.03em;
+  color: var(--text);
+  text-wrap: pretty;
+}
+
+.about-word {
+  white-space: pre-wrap;
+}
+
+.about-principles {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 64px;
+}
+
+.about-principle {
+  padding: 22px 22px 24px;
+  transition: border-color 0.25s, background-color 0.25s;
+}
+
+.about-principle:hover {
+  border-color: var(--border-strong);
+  background: var(--surface-hover);
+}
+
+.about-principle-icon {
+  display: inline-grid;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  color: var(--accent);
+  background: rgba(94, 234, 212, 0.08);
+  border: 1px solid rgba(94, 234, 212, 0.18);
+  font-size: 1rem;
+  margin-bottom: 16px;
+}
+
+.about-principle h3 {
+  font-size: 1.02rem;
+  margin-bottom: 6px;
+}
+
+.about-principle p {
+  color: var(--text-2);
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 860px) {
+  .about-principles {
+    grid-template-columns: 1fr;
+    margin-top: 48px;
+  }
+}
