@@ -26,7 +26,7 @@ export const experience = [
     role: "Senior Full Stack FinTech and AI Engineer",
     company: "Freelance",
     location: "Remote",
-    period: "Jan 2025 – Present",
+    period: "Jan 2025 to Present",
     points: [
       "Long term engineering partner for an options analytics company, delivering four connected products: a web analytics platform, a real time market data pipeline, a desktop AI app, and a voice AI assistant.",
       "Built the platform's AI research agent with LangGraph and DeepAgents on Claude through AWS Bedrock, with token streaming over WebSockets, 16 tools, Postgres backed conversation state, and prompt caching.",
@@ -39,7 +39,7 @@ export const experience = [
   {
     role: "Senior Software Engineer and Partner",
     company: "LNX Cloud Technology",
-    period: "Jan 2020 – Jan 2025",
+    period: "Jan 2020 to Jan 2025",
     points: [
       "Led the architecture and development of scalable cloud applications for clients in FinTech, SaaS, and social media.",
       "Built real time systems with WebSockets and Django Channels that powered live market data feeds and chat products serving thousands of concurrent users.",
@@ -178,13 +178,13 @@ export const education = [
   {
     degree: "Bachelor of Computer Application, Computer Science",
     school: "Saurashtra University, Rajkot",
-    period: "Oct 2019 – Mar 2022",
+    period: "Oct 2019 to Mar 2022",
     note: "CGPA 8.75, First Distinction",
   },
   {
     degree: "Bachelor's Degree, Information Technology",
     school: "LDRP Institute of Technology and Research, Gandhinagar (Kadi Sarva Vishwavidyalaya)",
-    period: "Jul 2017 – Aug 2019",
+    period: "Jul 2017 to Aug 2019",
   },
 ];
 

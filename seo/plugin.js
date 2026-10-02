@@ -31,7 +31,7 @@ function staticHtml() {
   <section class="container" id="experience-static"><h2>Experience</h2>
     ${experience
       .map(
-        (j) => `<article><h3>${esc(j.role)} — ${esc(j.company)}</h3><p>${esc(j.period)}${j.location ? ` · ${esc(j.location)}` : ""}</p>${list(j.points)}</article>`
+        (j) => `<article><h3>${esc(j.role)}, ${esc(j.company)}</h3><p>${esc(j.period)}${j.location ? ` · ${esc(j.location)}` : ""}</p>${list(j.points)}</article>`
       )
       .join("")}
   </section>
@@ -66,7 +66,7 @@ function jsonLd() {
       "@type": "WebSite",
       "@id": `${SITE}#website`,
       url: SITE,
-      name: `${profile.name} — Portfolio`,
+      name: `${profile.name} | Portfolio`,
       inLanguage: "en",
       publisher: { "@id": personId },
     },

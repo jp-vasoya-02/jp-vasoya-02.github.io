@@ -27,10 +27,10 @@ import {
 } from "../../data/portfolio";
 import { navSections } from "../../lib/actions";
 
-export const AGENT_TITLE = "jaydip-agent — scripted demo · no LLM calls";
+export const AGENT_TITLE = "jaydip-agent · scripted demo · no LLM calls";
 
 export const GREETING =
-  "Hi, I'm Jaydip's portfolio agent. Ask me about his work — try a suggestion below or type `help`.";
+  "Hi, I'm Jaydip's portfolio agent. Ask me about his work. Try a suggestion below or type `help`.";
 
 export const SUGGESTIONS = [...new Set([...terminalPrompts, "help"])];
 
@@ -38,7 +38,7 @@ const firstName = profile.name.split(" ")[0];
 const plural = (n, word) => `${n} ${word}${n === 1 ? "" : "s"}`;
 const handle = (url) => url.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
 
-const DEMO_NOTE = "This is a scripted demo agent — no LLM calls, no data leaves your browser.";
+const DEMO_NOTE = "This is a scripted demo agent. No LLM calls, and no data leaves your browser.";
 
 const COMMANDS = [
   ["whoami", "who Jaydip is, in one screen"],
@@ -88,7 +88,7 @@ function help() {
   return {
     tools: [{ name: "list_commands", args: "", result: plural(COMMANDS.length, "command") }],
     blocks: [
-      { type: "p", text: "Here's what I can answer. Plain questions work too — try **“what's your stack?”**" },
+      { type: "p", text: "Here's what I can answer. Plain questions work too, like **“what's your stack?”**" },
       { type: "table", head: ["command", "what it does"], rows: COMMANDS.map(([c, d]) => [`\`${c}\``, d]) },
       { type: "note", text: DEMO_NOTE },
     ],
@@ -102,7 +102,7 @@ function whoami() {
       { name: "get_stats", args: "", result: plural(stats.length, "result") },
     ],
     blocks: [
-      { type: "p", text: `**${profile.name}** — ${profile.title} · ${profile.location}` },
+      { type: "p", text: `**${profile.name}** · ${profile.title} · ${profile.location}` },
       { type: "p", text: profile.summary },
       { type: "table", head: ["metric", "value"], rows: stats.map((s) => [s.label, `**${s.value}**`]) },
       contactLinks(),
@@ -114,11 +114,11 @@ function projectList() {
   return {
     tools: [{ name: "get_projects", args: "", result: plural(projects.length, "result") }],
     blocks: [
-      { type: "p", text: `${firstName}'s flagship work — ${projects.length} connected products for one options analytics company:` },
+      { type: "p", text: `${firstName}'s flagship work: ${projects.length} connected products for one options analytics company.` },
       {
         type: "list",
         ordered: true,
-        items: projects.map((p) => `**${p.title}** — ${p.description}`),
+        items: projects.map((p) => `**${p.title}**: ${p.description}`),
       },
       { type: "p", text: "Type `project 1` (or an id like `project desktop-agent`) for architecture and details." },
       caseStudyAction("See case studies"),
@@ -147,7 +147,7 @@ function projectNotFound(query) {
     tools: [{ name: "get_project", args: `id="${query}"`, result: "0 results" }],
     blocks: [
       { type: "p", text: `I couldn't find a project matching **${query}**. Available:` },
-      { type: "list", ordered: true, items: projects.map((p) => `\`${p.id}\` — ${p.title}`) },
+      { type: "list", ordered: true, items: projects.map((p) => `\`${p.id}\`: ${p.title}`) },
     ],
   };
 }
@@ -177,7 +177,7 @@ function ai() {
 
   const blocks = [
     { type: "p", text: `AI work ${firstName} has shipped to production:` },
-    { type: "list", items: aiProjects.map((p) => `**${p.title}** — ${p.points?.[0] ?? p.description}`) },
+    { type: "list", items: aiProjects.map((p) => `**${p.title}**: ${p.points?.[0] ?? p.description}`) },
   ];
   if (aiGroup) blocks.push({ type: "tags", items: aiGroup.items });
   blocks.push({ type: "p", text: "Ask `project 1` to see how the research agent is wired end to end." });
@@ -188,7 +188,7 @@ function ai() {
 function experienceAnswer() {
   const blocks = [];
   experience.forEach((job) => {
-    blocks.push({ type: "p", text: `**${job.role}** · ${job.company} — ${job.period}` });
+    blocks.push({ type: "p", text: `**${job.role}** · ${job.company} · ${job.period}` });
     blocks.push({ type: "list", items: job.points.slice(0, 3) });
   });
   blocks.push({
@@ -210,7 +210,7 @@ function educationAnswer() {
     blocks: [
       {
         type: "list",
-        items: education.map((e) => `**${e.degree}** — ${e.school} · ${e.period}${e.note ? ` · ${e.note}` : ""}`),
+        items: education.map((e) => `**${e.degree}**, ${e.school} · ${e.period}${e.note ? ` · ${e.note}` : ""}`),
       },
     ],
   };
@@ -220,7 +220,7 @@ function hire() {
   return {
     tools: [{ name: "get_contact", args: "", result: "3 channels" }],
     blocks: [
-      { type: "p", text: `Great choice. ${firstName} works directly with teams and clients — the fastest route is email.` },
+      { type: "p", text: `Great choice. ${firstName} works directly with teams and clients, and the fastest route is email.` },
       {
         type: "table",
         head: ["channel", "where"],
@@ -265,7 +265,7 @@ function resume() {
   return {
     tools: [{ name: "get_resume", args: "", result: "1 file · PDF" }],
     blocks: [
-      { type: "p", text: `Here's ${firstName}'s resume — same content as this site, in one PDF.` },
+      { type: "p", text: `Here's ${firstName}'s resume. Same content as this site, in one PDF.` },
       {
         type: "actions",
         items: [
@@ -296,7 +296,7 @@ function fallback(input) {
     tools: [{ name: "search_portfolio", args: `query="${q}"`, result: "0 results" }],
     blocks: [
       { type: "p", text: `I don't have a scripted answer for **“${q}”** yet.` },
-      { type: "p", text: "Try `projects`, `stack`, `experience`, `ai`, `hire` — or `help` for everything." },
+      { type: "p", text: "Try `projects`, `stack`, `experience`, `ai`, `hire`, or `help` for everything." },
       { type: "note", text: DEMO_NOTE },
     ],
   };
@@ -364,7 +364,7 @@ export function respond(rawInput) {
   if (has(/^(hi|hello|hey|yo|sup)\b/, s)) {
     return answer({
       tools: [],
-      blocks: [{ type: "p", text: "Hey! Try `whoami`, `projects` or `stack` — or ask a question in plain English." }],
+      blocks: [{ type: "p", text: "Hey! Try `whoami`, `projects` or `stack`, or ask a question in plain English." }],
     });
   }
 

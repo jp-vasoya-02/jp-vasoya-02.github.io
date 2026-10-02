@@ -23,7 +23,7 @@ export function toWeeks(days) {
   const last = weeks[weeks.length - 1];
   while (last.length < 7) last.push(null);
 
-  // Month label on the first week that contains the 1st–7th of a month.
+  // Month label on the first week that contains days 1 to 7 of a month.
   const months = [];
   let prev = -1;
   weeks.forEach((week, col) => {
