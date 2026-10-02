@@ -7,12 +7,7 @@ export default defineConfig({
   build: {
     // `npm run deploy` publishes this folder to the gh-pages branch.
     outDir: "build",
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          three: ["three", "@react-three/fiber"],
-        },
-      },
-    },
+    // three.js (~820 kB) is isolated in the lazily loaded VolSurface chunk, off the critical path.
+    chunkSizeWarningLimit: 900,
   },
 });
