@@ -420,14 +420,15 @@ export default function AgentTerminal() {
       historyIdxRef.current = -1;
       draftRef.current = "";
       stickRef.current = true;
-      refocusRef.current = fromInput;
+      refocusRef.current = refocusRef.current || fromInput;
 
       const res = respond(text);
       if (res.kind === "clear") {
         setEntries([]);
         return;
       }
-      setEntries((prev) => [...prev, { id: nextId(), kind: "user", text }]);
+      const userId = nextId();
+      setEntries((prev) => [...prev, { id: userId, kind: "user", text }]);
       play(makeAgentEntry(nextId(), res.tools, res.blocks));
     },
     [finishCurrent, greet, play],
@@ -500,6 +501,7 @@ export default function AgentTerminal() {
   };
 
   const onKeyDown = (e) => {
+    if (e.nativeEvent.isComposing) return;
     const hist = historyRef.current;
     if (e.key === "ArrowUp") {
       if (!hist.length) return;
@@ -511,7 +513,7 @@ export default function AgentTerminal() {
         historyIdxRef.current = Math.max(0, historyIdxRef.current - 1);
       }
       setValue(hist[historyIdxRef.current]);
-      setCaretAtEnd(true);
+      requestAnimationFrame(syncCaret);
     } else if (e.key === "ArrowDown") {
       if (historyIdxRef.current === -1) return;
       e.preventDefault();
@@ -523,9 +525,10 @@ export default function AgentTerminal() {
         historyIdxRef.current = next;
         setValue(hist[next]);
       }
-      setCaretAtEnd(true);
+      requestAnimationFrame(syncCaret);
     } else if (e.key === "Escape") {
       setValue("");
+      setCaretAtEnd(true);
       historyIdxRef.current = -1;
     }
   };
@@ -600,7 +603,8 @@ export default function AgentTerminal() {
                   className={`at-input${showBlock ? " hide-caret" : ""}`}
                   type="text"
                   value={value}
-                  disabled={busy}
+                  readOnly={busy}
+                  aria-disabled={busy}
                   autoComplete="off"
                   autoCapitalize="off"
                   autoCorrect="off"

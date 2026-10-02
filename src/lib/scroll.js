@@ -21,9 +21,9 @@ export function initSmoothScroll() {
 export function scrollToId(id) {
   const el = document.getElementById(id);
   if (!el) return;
-  const offset = -72;
-  if (lenis) lenis.scrollTo(el, { offset });
-  else window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY + offset });
+  // Both paths honour the html scroll-padding-top that clears the fixed nav.
+  if (lenis) lenis.scrollTo(el);
+  else el.scrollIntoView();
 }
 
 // Reference-counted so overlapping overlays (palette, modal) can't unlock each other.

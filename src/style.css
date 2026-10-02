@@ -83,7 +83,6 @@ ol {
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
-  border-radius: 6px;
 }
 
 /* Lenis */

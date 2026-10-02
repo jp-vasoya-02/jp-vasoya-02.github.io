@@ -5,7 +5,8 @@ import { scrollToId } from "../lib/scroll";
 import useActiveSection from "../hooks/useActiveSection";
 import "./Nav.css";
 
-const ids = navSections.map((s) => s.id);
+// Observe every section (not only nav targets) so the highlight clears on the hero and education.
+const ids = ["hero", ...navSections.map((s) => s.id), "education"];
 const isMac = typeof navigator !== "undefined" && /Mac|iPhone|iPad/.test(navigator.platform);
 
 export default function Nav() {
@@ -19,6 +20,19 @@ export default function Nav() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  useEffect(() => {
+    if (!open) return undefined;
+    const onKey = (e) => e.key === "Escape" && setOpen(false);
+    const mq = window.matchMedia("(min-width: 900px)");
+    const onWide = () => mq.matches && setOpen(false);
+    window.addEventListener("keydown", onKey);
+    mq.addEventListener("change", onWide);
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      mq.removeEventListener("change", onWide);
+    };
+  }, [open]);
 
   function go(e, id) {
     e.preventDefault();
@@ -45,7 +59,14 @@ export default function Nav() {
               {s.label}
             </a>
           ))}
-          <button type="button" className="nav-resume-mobile" onClick={openResume}>
+          <button
+            type="button"
+            className="nav-resume-mobile"
+            onClick={() => {
+              setOpen(false);
+              openResume();
+            }}
+          >
             Resume ↗
           </button>
         </nav>

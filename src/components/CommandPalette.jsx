@@ -55,7 +55,7 @@ export default function CommandPalette() {
       contentClassName="cmdk-content"
     >
       <Command.Input placeholder="Type a command or search…" className="cmdk-input" />
-      <Command.List className="cmdk-list">
+      <Command.List className="cmdk-list" data-lenis-prevent>
         <Command.Empty className="cmdk-empty">No results.</Command.Empty>
 
         <Command.Group heading="Navigate">

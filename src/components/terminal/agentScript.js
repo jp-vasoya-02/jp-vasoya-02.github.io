@@ -27,7 +27,7 @@ import {
 } from "../../data/portfolio";
 import { navSections } from "../../lib/actions";
 
-export const AGENT_TITLE = "jaydip-agent — claude-via-bedrock · 16 tools";
+export const AGENT_TITLE = "jaydip-agent — scripted demo · no LLM calls";
 
 export const GREETING =
   "Hi, I'm Jaydip's portfolio agent. Ask me about his work — try a suggestion below or type `help`.";
@@ -332,21 +332,23 @@ export function respond(rawInput) {
   const answer = (r) => ({ kind: "answer", ...r });
 
   if (!s) return answer(help());
-  if (has(/^(clear|cls|reset)\b|\bclear\b/, s)) return { kind: "clear" };
+  if (has(/^(clear|cls|reset)$/, s)) return { kind: "clear" };
 
   if (s.startsWith("sudo")) return answer(has(/\bhire\b/, s) ? sudoHire() : sudoOther());
 
   const explicit = s.match(/^(?:project|cat|open|show project)\s+#?(.+)$/);
   if (explicit) {
     const p = findProject(explicit[1]);
-    return answer(p ? projectDetail(p) : projectNotFound(explicit[1]));
+    if (p) return answer(projectDetail(p));
+    // "open resume" / "open github" should route normally; only "project x" reports a miss.
+    if (/^(project|show project)\b/.test(s)) return answer(projectNotFound(explicit[1]));
   }
   const byNumber = findProject(s);
   if (byNumber && /^\d+$/.test(s)) return answer(projectDetail(byNumber));
 
   if (has(/^(help|\?|man|commands?)$|\b(help|what can you do|how does this work)\b/, s)) return answer(help());
   if (has(/^ls\b|\b(sections|sitemap)\b/, s)) return answer(ls());
-  if (has(/\b(hire|hiring|contact|email|reach|available|availability|talk|connect)\b/, s)) return answer(hire());
+  if (has(/\b(hire|hiring|contact|email|reach|available|availability|talk|connect|github|linkedin)\b/, s)) return answer(hire());
   if (has(/\b(resume|cv|pdf)\b/, s)) return answer(resume());
   if (has(/\b(education|degree|university|college|study|studied|school)\b/, s)) return answer(educationAnswer());
   if (has(/\b(experience|work history|career|jobs?|roles?|employment|background)\b/, s)) return answer(experienceAnswer());

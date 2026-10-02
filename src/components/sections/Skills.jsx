@@ -239,6 +239,8 @@ export default function Skills() {
       lead={`${total} skills across ${skills.length} areas, from Django and Redis Streams to Claude, LangGraph and MCP.`}
       className="skills"
     >
+      {/* Ref lives on a wrapper rendered in both layouts so useInView survives resizes. */}
+      <div ref={wrapRef}>
       {compact ? (
         <div className="sk-grid">
           {skills.map((g, i) => (
@@ -257,7 +259,7 @@ export default function Skills() {
         </div>
       ) : (
         <Reveal>
-          <div ref={wrapRef} className="sk-wrap">
+          <div className="sk-wrap">
             <div className="sk-cats" role="group" aria-label="Skill categories">
               {skills.map((g, i) => (
                 <button
@@ -291,6 +293,7 @@ export default function Skills() {
           </div>
         </Reveal>
       )}
+      </div>
     </Section>
   );
 }

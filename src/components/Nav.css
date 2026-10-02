@@ -146,12 +146,14 @@
     border-bottom: 1px solid var(--border);
     transform: translateY(-8px);
     opacity: 0;
+    visibility: hidden;
     pointer-events: none;
-    transition: opacity 0.2s, transform 0.2s;
+    transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
   }
 
   .nav-links.is-open {
     opacity: 1;
+    visibility: visible;
     transform: none;
     pointer-events: auto;
   }
