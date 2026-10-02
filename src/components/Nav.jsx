@@ -5,8 +5,8 @@ import { scrollToId } from "../lib/scroll";
 import useActiveSection from "../hooks/useActiveSection";
 import "./Nav.css";
 
-// Observe every section (not only nav targets) so the highlight clears on the hero and education.
-const ids = ["hero", ...navSections.map((s) => s.id), "education"];
+// Observe every section (not only nav targets) so the highlight clears on the hero, GitHub and education.
+const ids = ["hero", ...navSections.map((s) => s.id), "github", "education"];
 const isMac = typeof navigator !== "undefined" && /Mac|iPhone|iPad/.test(navigator.platform);
 
 export default function Nav() {

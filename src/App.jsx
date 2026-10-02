@@ -10,6 +10,7 @@ import AgentTerminal from "./components/terminal/AgentTerminal";
 import About from "./components/sections/About";
 import Experience from "./components/sections/Experience";
 import Projects from "./components/sections/Projects";
+import GitHubActivity from "./components/sections/GitHubActivity";
 import Skills from "./components/sections/Skills";
 import Education from "./components/sections/Education";
 import Contact from "./components/sections/Contact";
@@ -29,6 +30,7 @@ export default function App() {
         <About />
         <Experience />
         <Projects />
+        <GitHubActivity />
         <Skills />
         <Education />
         <Contact />
