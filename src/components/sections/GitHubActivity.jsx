@@ -85,7 +85,7 @@ export default function GitHubActivity() {
         ) : (
           <>
             <dl className="gh-stats" aria-busy={state.status === "loading"}>
-              {(statItems || Array.from({ length: 4 }, (_, i) => ({ value: "—", label: "loading", key: i }))).map((s, i) => (
+              {(statItems || Array.from({ length: 4 }, (_, i) => ({ value: "...", label: "loading", key: i }))).map((s, i) => (
                 <div className="gh-stat" key={s.key ?? s.label + i}>
                   <dt>{s.label}</dt>
                   <dd className="mono">{s.value}</dd>

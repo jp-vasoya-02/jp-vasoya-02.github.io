@@ -677,7 +677,7 @@ export default function AgentTerminal() {
             </li>
           </ol>
           <p className="at-aside-foot">
-            Tip: <span className="kbd">↑</span> <span className="kbd">↓</span> for history. No LLM calls — nothing
+            Tip: <span className="kbd">↑</span> <span className="kbd">↓</span> for history. No LLM calls, and nothing
             leaves your browser.
           </p>
         </aside>
